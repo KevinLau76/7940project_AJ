@@ -4,7 +4,6 @@ from telegram import Update
 from telegram.ext import (Updater, CommandHandler, MessageHandler, Filters, CallbackContext, CallbackQueryHandler,
                           ConversationHandler)
 from ChatGPT_HKBU import HKBU_ChatGPT
-# The messageHandler is used for all message updates
 import configparser
 import logging
 import copy
@@ -101,7 +100,7 @@ def equiped_chatgpt(update, context):
 
 def chatgpt_echo_with_context(update, context):
     global chatgpt
-    user_message_head = 'You are currently a Cooking and Nutritional Analysis Assistant, please reply with advice based on the content of the user enquiry, you need to limit your reply to Cooking and Nutritional Analysis, if the user is enquiring about something else that is not relevant please reply with an explanation of the restriction of the content. The content of the user enquiry is:'
+    user_message_head = 'You are currently a Recipe and Nutritional Analysis Assistant,you need to reply user about the recipe above in your conversation context. please reply with advice based on the content of the user enquiry,  The content of the user enquiry is:'
     user_content = user_message_head + update.message.text
     user_message = {'role': 'user', 'content': user_content}
     user_id = update.effective_chat.id
